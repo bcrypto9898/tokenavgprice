@@ -11,7 +11,10 @@ pragma solidity ^0.8.0;
 import { LibDiamond } from "./libraries/LibDiamond.sol";
 import { IDiamondCut } from "./interfaces/IDiamondCut.sol";
 
-contract Diamond {    
+import "./facets/OwnershipFacet.sol";
+import "./facets/Storage.sol";
+
+contract Diamond is OwnershipFacet,Storage{    
 
     constructor(address _contractOwner, address _diamondCutFacet) payable {        
         LibDiamond.setContractOwner(_contractOwner);
@@ -26,6 +29,21 @@ contract Diamond {
             functionSelectors: functionSelectors
         });
         LibDiamond.diamondCut(cut, address(0), "");        
+    }
+
+    function setStorage() onlyOwner public {
+        Storage.setMonthData('Jan',1,0,0);
+        Storage.setMonthData('Feb',2,0,0);
+        Storage.setMonthData('Mar',3,0,0);
+        Storage.setMonthData('Apr',4,0,0);
+        Storage.setMonthData('May',5,0,0);
+        Storage.setMonthData('Jun',6,0,0);
+        Storage.setMonthData('Jul',7,0,0);
+        Storage.setMonthData('Aug',8,0,0);
+        Storage.setMonthData('Sep',9,0,0);
+        Storage.setMonthData('Oct',10,0,0);
+        Storage.setMonthData('Nov',11,0,0);
+        Storage.setMonthData('Dec',12,0,0);
     }
 
     // Find facet for function that is called and execute the

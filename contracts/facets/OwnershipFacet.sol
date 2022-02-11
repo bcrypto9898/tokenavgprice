@@ -13,4 +13,9 @@ contract OwnershipFacet is IERC173 {
     function owner() external override view returns (address owner_) {
         owner_ = LibDiamond.contractOwner();
     }
+
+    modifier onlyOwner {
+        require(msg.sender == LibDiamond.contractOwner(), "Ownable: You are not the owner, Bye.");
+        _;
+    }
 }
