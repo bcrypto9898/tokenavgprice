@@ -32,18 +32,18 @@ contract Diamond is OwnershipFacet,Storage{
     }
 
     function setStorage() onlyOwner public {
-        Storage.setMonthData('Jan',1,0,0);
-        Storage.setMonthData('Feb',2,0,0);
-        Storage.setMonthData('Mar',3,0,0);
-        Storage.setMonthData('Apr',4,0,0);
-        Storage.setMonthData('May',5,0,0);
-        Storage.setMonthData('Jun',6,0,0);
-        Storage.setMonthData('Jul',7,0,0);
-        Storage.setMonthData('Aug',8,0,0);
-        Storage.setMonthData('Sep',9,0,0);
-        Storage.setMonthData('Oct',10,0,0);
-        Storage.setMonthData('Nov',11,0,0);
-        Storage.setMonthData('Dec',12,0,0);
+        Storage.setMonthData(keccak256(bytes('_Jan_')),1,0,0,Storage.monthType);
+        Storage.setMonthData(keccak256(bytes('_Feb_')),2,0,0,Storage.monthType);
+        Storage.setMonthData(keccak256(bytes('_Mar_')),3,0,0,Storage.monthType);
+        Storage.setMonthData(keccak256(bytes('_Apr_')),4,0,0,Storage.monthType);
+        Storage.setMonthData(keccak256(bytes('_May_')),5,0,0,Storage.monthType);
+        Storage.setMonthData(keccak256(bytes('_Jun_')),6,0,0,Storage.monthType);
+        Storage.setMonthData(keccak256(bytes('_Jul_')),7,0,0,Storage.monthType);
+        Storage.setMonthData(keccak256(bytes('_Aug_')),8,0,0,Storage.monthType);
+        Storage.setMonthData(keccak256(bytes('_Sep_')),9,0,0,Storage.monthType);
+        Storage.setMonthData(keccak256(bytes('_Oct_')),10,0,0,Storage.monthType);
+        Storage.setMonthData(keccak256(bytes('_Nov_')),11,0,0,Storage.monthType);
+        Storage.setMonthData(keccak256(bytes('_Dec_')),12,0,0,Storage.monthType);
     }
 
     // Find facet for function that is called and execute the
